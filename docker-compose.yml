@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  api:
+    image: teslagov/clarakm-projects-go:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=clarakm-projects
+      - MYSQL_USER=clara
+      - MYSQL_PASSWORD=password
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7.20
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=clarakm-projects
+      - MYSQL_USER=clara
+      - MYSQL_PASSWORD=password
+    ports:
+      - "13306:3306"
+    volumes:
+      - projects-data-volume:/var/lib/mysql
+
+volumes:
+  projects-data-volume:
+    driver: local
