@@ -2,11 +2,21 @@
 
 package main
 
-import "os"
+import (
+	"os"
+	"fmt"
+)
 
 func main() {
 	a := App{}
-	a.Initialize(os.Getenv("MYSQL_USER"), os.Getenv("MYSQL_PASSWORD"), os.Getenv("MYSQL_HOST"), os.Getenv("MYSQL_DATABASE"))
 
+	user := os.Getenv("MYSQL_USER")
+	pass := os.Getenv("MYSQL_PASSWORD")
+	host := os.Getenv("MYSQL_HOST")
+	db := os.Getenv("MYSQL_DATABASE")
+
+	a.Initialize(user, pass, host, db)
+
+	fmt.Sprintf("%s:%s %s/%s", user, pass, host, db)
 	a.Run(":8080")
 }
