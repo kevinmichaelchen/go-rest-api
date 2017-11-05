@@ -3,8 +3,8 @@
 package main
 
 import (
-  "fmt"
 	"database/sql"
+	"fmt"
 )
 
 type user struct {
