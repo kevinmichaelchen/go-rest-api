@@ -1,4 +1,10 @@
-.PHONY: build rebuild run stop
+.PHONY: pb build rebuild run stop
+
+pb:
+	for f in pb/**/*.proto; do \
+		protoc --go_out=plugins=grpc:. $$f; \
+		echo compiled: $$f; \
+	done
 
 build:
 	docker build -t teslagov/clarakm-projects-go:latest .
