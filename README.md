@@ -1,9 +1,10 @@
 ## Getting started
 ```bash
 mysql -uroot -e 'CREATE DATABASE IF NOT EXISTS rest_api_example;'
+
 go test -v
 
-docker build -t teslagov/clarakm-projects-go:latest .
+make run
 ```
 
 ## TODO
