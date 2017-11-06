@@ -13,3 +13,4 @@ make run
 
 ## References
 * [Medium article](https://medium.com/@kelvinpfw/building-and-testing-a-rest-api-in-golang-using-gorilla-mux-and-mysql-1f0518818ff6)
+* [HTTP up front, Protobufs in the rear](https://github.com/harlow/go-micro-services)
