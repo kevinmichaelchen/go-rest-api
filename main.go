@@ -4,7 +4,6 @@ package main
 
 import (
 	"os"
-	"fmt"
 )
 
 func main() {
@@ -17,6 +16,5 @@ func main() {
 
 	a.Initialize(user, pass, host, db)
 
-	fmt.Sprintf("%s:%s %s/%s", user, pass, host, db)
 	a.Run(":8080")
 }

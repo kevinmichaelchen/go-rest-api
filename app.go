@@ -12,6 +12,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
+	"os"
 )
 
 // App struct
@@ -49,7 +50,11 @@ func (a *App) initializeRoutes() {
 }
 
 func (a *App) hello(w http.ResponseWriter, r *http.Request) {
-	respondWithJSON(w, http.StatusOK, "hello")
+	user := os.Getenv("MYSQL_USER")
+	pass := os.Getenv("MYSQL_PASSWORD")
+	host := os.Getenv("MYSQL_HOST")
+	db := os.Getenv("MYSQL_DATABASE")
+	respondWithJSON(w, http.StatusOK, fmt.Sprintf("Hello, world! You're DB URL is: %s:%s@tcp(%s:3306)/%s", user, pass, host, db))
 }
 
 func (a *App) getUsers(w http.ResponseWriter, r *http.Request) {
