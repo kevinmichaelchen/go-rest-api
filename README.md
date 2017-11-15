@@ -5,6 +5,11 @@ mysql -uroot -e 'CREATE DATABASE IF NOT EXISTS rest_api_example;'
 go test -v
 
 make run
+
+docker exec -it $(docker ps -aqf "name=clarakm-projects-go") /bin/ash
+docker exec -it $(docker ps -aqf "name=clarakm-projects-go") /bin/cat /etc/hosts
+
+docker inspect $(docker ps -aqf "name=clarakmprojectsgo_db_1") | jq -r '.[0].NetworkSettings.Networks.clarakmprojectsgo_default.IPAddress'
 ```
 
 ## TODO
