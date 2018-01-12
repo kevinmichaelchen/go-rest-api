@@ -1,16 +1,18 @@
+.PHONY: all
 .PHONY: test pb
 .PHONY: build rebuild
-.PHONY: start stop seed
+.PHONY: start remove stop seed
 .PHONY: list-users create-user
+
+all:
+	@$(MAKE) remove
+	@$(MAKE) rebuild
+	@$(MAKE) start
+	sleep 10
+	@$(MAKE) seed
 
 test:
 	go test -v
-
-pb:
-	for f in pb/**/*.proto; do \
-		protoc --go_out=plugins=grpc:. $$f; \
-		echo compiled: $$f; \
-	done
 
 build:
 	docker build -t teslagov/clarakm-projects-go:latest .
@@ -20,8 +22,11 @@ rebuild:
 	docker build -t teslagov/clarakm-projects-go:latest . --no-cache
 	docker-compose build
 
+remove:
+	docker rm --force clarakm-projects-go || true
+
 start:
-	docker-compose up
+	docker-compose up -d
 
 stop:
 	docker-compose stop

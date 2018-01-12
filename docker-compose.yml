@@ -15,6 +15,7 @@ services:
       - db
 
   db:
+    container_name: clarakm-projects-db
     image: mysql:5.7.20
     environment:
       - MYSQL_ROOT_PASSWORD=root

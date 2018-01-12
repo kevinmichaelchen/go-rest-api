@@ -1,22 +1,20 @@
 ## Getting started
+To build Docker images and spin them up, just run
 ```bash
-# Rebuild the Docker image and start it
-make rebuild start
-
-# Create our DB table 
-make seed
-
-# List users
-make list-users
-
-# Create a user
-make create-user
-
-# Run tests
-make test
+make
 ```
 
-To run tests, use `go test -v`.
+To bring it all down, run
+```bash
+make stop
+```
+
+### Using the API
+```bash
+make list-users
+make create-user
+make list-users
+```
 
 ## TODO
 - [goose](https://github.com/pressly/goose) or [migrate](https://github.com/mattes/migrate) for DB migrations.
