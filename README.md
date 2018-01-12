@@ -1,11 +1,15 @@
 ## Getting started
 ```bash
+# Rebuild the Docker image and start it
 make rebuild start
 
+# Create our DB table 
 make seed
 
+# List users
 make list-users
 
+# Create a user
 make create-user
 ```
 
