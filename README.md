@@ -19,7 +19,10 @@ make list-users
 ## TODO
 - Pagination
 - Per-route JWT authentication
-- [goose](https://github.com/pressly/goose) or [migrate](https://github.com/mattes/migrate) for DB migrations.
+- DB migrations.
+  - Currently I have a Make target to just create tables.
+  - We should have something akin to Flyway, which runs on program start and runs migration scripts.
+  - Look into [goose](https://github.com/pressly/goose) or [migrate](https://github.com/mattes/migrate).
 - [Minimal Docker container](https://blog.codeship.com/building-minimal-docker-containers-for-go-applications/).
 - [Harden Alpine](https://gist.github.com/jumanjiman/f9d3db977846c163df12)
 
