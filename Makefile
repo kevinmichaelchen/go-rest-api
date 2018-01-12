@@ -26,7 +26,7 @@ seed:
 	./seed-data.sh
 
 list-users:
-	curl localhost:8080/users
+	http localhost:8080/users
 
 create-user:
 	curl -X POST localhost:8080/user -d '{"name":"Kevin","age":24}'
