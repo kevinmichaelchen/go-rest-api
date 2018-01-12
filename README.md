@@ -11,6 +11,9 @@ make list-users
 
 # Create a user
 make create-user
+
+# Run tests
+make test
 ```
 
 To run tests, use `go test -v`.

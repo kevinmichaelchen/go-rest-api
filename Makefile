@@ -1,7 +1,10 @@
-.PHONY: pb
+.PHONY: test pb
 .PHONY: build rebuild
 .PHONY: start stop seed
 .PHONY: list-users create-user
+
+test:
+	go test -v
 
 pb:
 	for f in pb/**/*.proto; do \
