@@ -1,7 +1,8 @@
 .PHONY: all
-.PHONY: test pb
+.PHONY: test
 .PHONY: build rebuild
-.PHONY: start remove stop seed
+.PHONY: start remove stop
+.PHONY: seed
 .PHONY: list-users create-user
 
 all:
