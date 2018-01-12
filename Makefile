@@ -1,4 +1,6 @@
-.PHONY: pb build rebuild run stop
+.PHONY: pb
+.PHONY: build rebuild
+.PHONY: start stop seed
 
 pb:
 	for f in pb/**/*.proto; do \
@@ -14,8 +16,11 @@ rebuild:
 	docker build -t teslagov/clarakm-projects-go:latest . --no-cache
 	docker-compose build
 
-run:
+start:
 	docker-compose up
 
 stop:
 	docker-compose stop
+
+seed:
+	./seed-data.sh
