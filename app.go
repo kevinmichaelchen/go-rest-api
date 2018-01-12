@@ -3,15 +3,15 @@
 package main
 
 import (
+	"database/sql"
 	"encoding/json"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/gorilla/mux"
 	"log"
 	"net/http"
-	"strconv"
-	"github.com/gorilla/mux"
 	"os"
-	"database/sql"
-	_ "github.com/go-sql-driver/mysql"
+	"strconv"
 )
 
 // App struct
