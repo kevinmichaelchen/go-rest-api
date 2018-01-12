@@ -1,16 +1,15 @@
 ## Getting started
 ```bash
-mysql -uroot -e 'CREATE DATABASE IF NOT EXISTS rest_api_example;'
+make rebuild start
 
-go test -v
+make seed
 
-make run
+make list-users
 
-docker exec -it $(docker ps -aqf "name=clarakm-projects-go") /bin/ash
-docker exec -it $(docker ps -aqf "name=clarakm-projects-go") /bin/cat /etc/hosts
-
-docker inspect $(docker ps -aqf "name=clarakmprojectsgo_db_1") | jq -r '.[0].NetworkSettings.Networks.clarakmprojectsgo_default.IPAddress'
+make create-user
 ```
+
+To run tests, use `go test -v`.
 
 ## TODO
 - [goose](https://github.com/pressly/goose) or [migrate](https://github.com/mattes/migrate) for DB migrations.
