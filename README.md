@@ -28,7 +28,7 @@ make list-users
 - [Harden Alpine](https://gist.github.com/jumanjiman/f9d3db977846c163df12)
 
 ## References
-* [Medium article](https://medium.com/@kelvinpfw/building-and-testing-a-rest-api-in-golang-using-gorilla-mux-and-mysql-1f0518818ff6)
+* [Building and Testing a REST API in GoLang using Gorilla Mux and MySQL](https://medium.com/@kelvinpfw/building-and-testing-a-rest-api-in-golang-using-gorilla-mux-and-mysql-1f0518818ff6)
 * [HTTP up front, Protobufs in the rear](https://github.com/harlow/go-micro-services)
 * https://github.com/qiangxue/golang-restful-starter-kit
 * https://talks.golang.org/2014/organizeio.slide#4
