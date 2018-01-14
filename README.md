@@ -29,11 +29,20 @@ make list-users
 
 ## References
 ### basic
-* [Building and Testing a REST API in GoLang using Gorilla Mux and MySQL](https://medium.com/@kelvinpfw/building-and-testing-a-rest-api-in-golang-using-gorilla-mux-and-mysql-1f0518818ff6)
 * https://talks.golang.org/2014/organizeio.slide#4
+* [Structs instead of classes](https://golangbot.com/structs-instead-of-classes/)
+* [Why Go’s structs are superior to class-based inheritance](https://medium.com/@simplyianm/why-gos-structs-are-superior-to-class-based-inheritance-b661ba897c67)
+
+### frameworks
+* [A List of Top Golang Frameworks, IDEs & Tools](https://blog.intelligentbee.com/2017/08/14/golang-guide-list-top-golang-frameworks-ides-tools/)
+* [A curated list of awesome Go frameworks, libraries and software](https://github.com/avelino/awesome-go)
+* [Building and Testing a REST API in GoLang using Gorilla Mux and MySQL](https://medium.com/@kelvinpfw/building-and-testing-a-rest-api-in-golang-using-gorilla-mux-and-mysql-1f0518818ff6)
+* [Why I Don’t Use Go Web Frameworks](https://medium.com/code-zen/why-i-don-t-use-go-web-frameworks-1087e1facfa4)
+* [Top 6 web frameworks for Go as of 2017](https://blog.usejournal.com/top-6-web-frameworks-for-go-as-of-2017-23270e059c4b)
 
 ### structure
 * https://github.com/qiangxue/golang-restful-starter-kit
+* https://github.com/kkamdooong/go-restful-api-example
 
 ### pagination
 * [Twitter Cursoring for Pagination](https://developer.twitter.com/en/docs/basics/cursoring)
