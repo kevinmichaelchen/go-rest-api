@@ -16,6 +16,9 @@ make create-user
 make list-users
 ```
 
+## Why Go?
+* Docker image of REST API is 12MB. Compare that to 200MB of Spring Boot fat jar on Alpine Linux.
+
 ## TODO
 - Project layout
 - Pagination
@@ -31,8 +34,11 @@ make list-users
 ## References
 ### basic
 * https://talks.golang.org/2014/organizeio.slide#4
-* [Structs instead of classes](https://golangbot.com/structs-instead-of-classes/)
+* [From Java to Go, and Back Again](https://opencredo.com/java-go-back/)
+* [golangbot tutorial](https://golangbot.com/learn-golang-series/)
+  * [Structs instead of classes](https://golangbot.com/structs-instead-of-classes/)
 * [Why Go’s structs are superior to class-based inheritance](https://medium.com/@simplyianm/why-gos-structs-are-superior-to-class-based-inheritance-b661ba897c67)
+* [What's with the underscore imports?](https://stackoverflow.com/questions/26972615/a-use-case-for-importing-with-blank-identifier-in-golang)
 
 ### frameworks
 * [A List of Top Golang Frameworks, IDEs & Tools](https://blog.intelligentbee.com/2017/08/14/golang-guide-list-top-golang-frameworks-ides-tools/)
