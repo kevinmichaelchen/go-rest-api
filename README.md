@@ -23,6 +23,7 @@ make list-users
 - Project layout
 - Pagination
 - Resource validation (presence, max length)
+- api-errors
 - Per-route JWT authentication
 - DB migrations.
   - Currently I have a Make target to just create tables.
