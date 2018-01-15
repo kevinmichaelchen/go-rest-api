@@ -19,6 +19,7 @@ make list-users
 ## TODO
 - Project layout
 - Pagination
+- Resource validation (presence, max length)
 - Per-route JWT authentication
 - DB migrations.
   - Currently I have a Make target to just create tables.
