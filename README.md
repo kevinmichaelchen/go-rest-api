@@ -18,6 +18,12 @@ make list-users
 
 ## Why Go?
 * Docker image of REST API is 12MB. Compare that to 200MB of Spring Boot fat jar on Alpine Linux.
+* [Iron.io](https://blog.iron.io/how-we-went-from-30-servers-to-2-go/)
+> We also weren’t sure if we would be able hire top talent if we chose Go, but we soon found 
+out that we could get top talent because we chose Go. We were one of the first companies to 
+publicly say that we were using it in production and the first company to post a Go job to 
+the golang mailing list. Top tier developers wanted to work for us just so they could use Go
+ in their day to day lives.
 
 ## TODO
 - Project layout
