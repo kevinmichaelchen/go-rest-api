@@ -42,6 +42,7 @@ the golang mailing list. Top tier developers wanted to work for us just so they 
 ### basic
 * https://talks.golang.org/2014/organizeio.slide#4
 * [From Java to Go, and Back Again](https://opencredo.com/java-go-back/)
+* [Comparing Golang with Java](https://dzone.com/articles/comparing-golang-with-java)
 * [golangbot tutorial](https://golangbot.com/learn-golang-series/)
   * [Structs instead of classes](https://golangbot.com/structs-instead-of-classes/)
 * [Why Go’s structs are superior to class-based inheritance](https://medium.com/@simplyianm/why-gos-structs-are-superior-to-class-based-inheritance-b661ba897c67)
