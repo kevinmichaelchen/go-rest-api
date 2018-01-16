@@ -29,6 +29,8 @@ the golang mailing list. Top tier developers wanted to work for us just so they 
 - Project layout
 - Pagination
 - Resource validation (presence, max length)
+  - We can use Ozzo
+  - Or we can monkey-patch our resource structs with `Validate` functions (as shown [here](https://husobee.github.io/golang/validation/2016/01/08/input-validation.html))
 - api-errors
 - Per-route JWT authentication
 - DB migrations.
