@@ -17,11 +17,12 @@ make list-users
 ```
 
 ### Docker stats
+Our Golang server has a light memory footprint.
 See this [asciinema video](https://asciinema.org/a/72mpi0VXUF9K65oX5bZYqUWa1) for Docker stats for 500 INSERTs.
-Notice that a Golang server sits at 4MB.
+The server starts at just under 4MB and, under load, crawls up to just under 6MB.
 
 Contrast that with [our Spring Boot memory footprint for Rampart](https://asciinema.org/a/qlAlCexwOj3hygKDrSE6noHpN),
-which sits at 500MB of memory.
+which sits at 500MB of memory and crawls up to ~530MB.
 
 That's 2 orders of magnitude difference!!!
 
