@@ -39,7 +39,7 @@ With a [Gradle task](https://stackoverflow.com/a/38058671/1780216), we know Ramp
 Embedded Tomcat is only supposed to be around 120MB, according to this [Java Code Geeks post](https://examples.javacodegeeks.com/enterprise-java/spring/tomcat-vs-jetty-vs-undertow-comparison-of-spring-boot-embedded-servlet-containers/).
 Even if that is the case, Spring Boot still requires 24 times more memory.
 
-This [post](https://www.marccostello.com/memory-analysis-of-a-spring-boot-application-in-docker-lessons-learnt/) explains how to use `-Xmx56m` to lower the memory footprint of Spring Boot but still ends up with 188.5MB of usage.
+This [post](https://www.marccostello.com/memory-analysis-of-a-spring-boot-application-in-docker-lessons-learnt/) explains how to use `-Xmx56m` to lower the memory footprint of Spring Boot but still ends up with 188.5MB of usage (about 38 times more memory than our Go server).
 
 #### Conclusion
 Golang is 2 orders of magnitude lighter!!!
