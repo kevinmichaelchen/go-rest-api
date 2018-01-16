@@ -41,6 +41,10 @@ Even if that is the case, Spring Boot still requires 24 times more memory.
 
 This [post](https://www.marccostello.com/memory-analysis-of-a-spring-boot-application-in-docker-lessons-learnt/) explains how to use `-Xmx56m` to lower the memory footprint of Spring Boot but still ends up with 188.5MB of usage (about 38 times more memory than our Go server).
 
+According to this [Spring Boot post](https://spring.io/blog/2015/12/10/spring-boot-memory-performance),
+vanilla Spring Boot has a 6MB heap, but once you add Eureka it balloons to 80MB.
+So adding Spring libraries can probably quickly cause memory footprint to rise.
+
 #### Conclusion
 Golang is 2 orders of magnitude lighter than Spring Boot.
 
