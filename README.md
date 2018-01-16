@@ -51,7 +51,7 @@ Golang is 2 orders of magnitude lighter than Spring Boot.
 We could run 100 replicas of a Go server before its memory exceeds that of its Spring Boot counterpart.
 
 On my Macbook Pro with 16BG of memory, I can only run 3 replicas of Rampart with the default Docker memory usage of 2GB.
-That's not enough to run a microservices on your local environment.
+That's not enough to run a microservices setup on your local environment.
 With Golang, you can run hundreds of replicas.
 
 Memory is not cheap!
