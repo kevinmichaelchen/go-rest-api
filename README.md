@@ -40,6 +40,7 @@ the golang mailing list. Top tier developers wanted to work for us just so they 
 
 ## References
 ### basic
+* [Official Tour of Golang](https://tour.golang.org)
 * https://talks.golang.org/2014/organizeio.slide#4
 * [From Java to Go, and Back Again](https://opencredo.com/java-go-back/)
 * [Comparing Golang with Java](https://dzone.com/articles/comparing-golang-with-java)
