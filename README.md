@@ -18,3 +18,5 @@ make list-users
 
 ### Docker stats
 See this [asciinema video](https://asciinema.org/a/72mpi0VXUF9K65oX5bZYqUWa1) for Docker stats for 500 INSERTs.
+
+Contrast that with [our Spring Boot memory footprint for Rampart](https://asciinema.org/a/qlAlCexwOj3hygKDrSE6noHpN)
