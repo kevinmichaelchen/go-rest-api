@@ -85,6 +85,8 @@ func (a *App) createUser(w http.ResponseWriter, r *http.Request) {
 	}
 	defer r.Body.Close()
 
+	// TODO validation
+
 	if err := u.createUser(a.DB); err != nil {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
@@ -131,6 +133,8 @@ func (a *App) updateUser(w http.ResponseWriter, r *http.Request) {
 	}
 	defer r.Body.Close()
 	u.ID = id
+
+	// TODO validation
 
 	if err := u.updateUser(a.DB); err != nil {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
