@@ -16,7 +16,7 @@ make create-user
 make list-users
 ```
 
-### Docker stats
+### Why should we use Golang?
 Our Golang server has a much lighter memory footprint than our Spring Boot apps, which do more or less the same thing.
 
 | Language | Framework   | Memory Footprint | Video (asciinema)                                        |
