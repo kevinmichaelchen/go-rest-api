@@ -26,4 +26,6 @@ which undergoes 500 POSTs to its `/person` endpoint and crawls up from 500MB to 
 
 That's 2 orders of magnitude difference!!!
 
+We could run 100 replicas of a Go server before its memory exceeds that of its Spring Boot counterpart.
+
 Memory is not cheap!
