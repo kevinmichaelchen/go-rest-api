@@ -62,6 +62,9 @@ the golang mailing list. Top tier developers wanted to work for us just so they 
 * https://github.com/qiangxue/golang-restful-starter-kit
 * https://github.com/kkamdooong/go-restful-api-example
 
+### validation
+* [API Input Validation in Golang](https://husobee.github.io/golang/validation/2016/01/08/input-validation.html)
+
 ### pagination
 * [Twitter Cursoring for Pagination](https://developer.twitter.com/en/docs/basics/cursoring)
 
