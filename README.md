@@ -24,7 +24,7 @@ Our Golang server has a much lighter memory footprint than our Spring Boot apps,
 | Spring Boot          | 500 MB           | [vid](https://asciinema.org/a/qlAlCexwOj3hygKDrSE6noHpN) |
 | Golang               | 5 MB             | [vid](https://asciinema.org/a/72mpi0VXUF9K65oX5bZYqUWa1) |
 
-Our Golang server undergoes 500 INSERTs / POSTs to its /user endpoint.
+Our Golang server undergoes 500 INSERTs / POSTs to its `/user` endpoint.
 
 The server starts at just under 4MB and, under load, crawls up to just under 6MB.
 
