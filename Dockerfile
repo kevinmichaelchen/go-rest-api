@@ -1,5 +1,5 @@
 FROM golang:1.9.2 as builder
-RUN go get -d -v github.com/gorilla/mux github.com/go-sql-driver/mysql
+RUN go get -d -v github.com/gorilla/mux github.com/lib/pq
 ADD . /go/src/github.com/teslagov/clarakm-projects-go/
 WORKDIR /go/src/github.com/teslagov/clarakm-projects-go/
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .

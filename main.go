@@ -1,5 +1,3 @@
-// main.go
-
 package main
 
 import (
@@ -9,10 +7,10 @@ import (
 func main() {
 	a := App{}
 
-	user := os.Getenv("MYSQL_USER")
-	pass := os.Getenv("MYSQL_PASSWORD")
-	host := os.Getenv("MYSQL_HOST")
-	db := os.Getenv("MYSQL_DATABASE")
+	user := os.Getenv("DB_USER")
+	pass := os.Getenv("DB_PASSWORD")
+	host := os.Getenv("DB_HOST")
+	db := os.Getenv("DB_DATABASE")
 
 	a.Initialize(user, pass, host, db)
 

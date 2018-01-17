@@ -1,16 +1,13 @@
-// app.go
-
 package main
 
 import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/lib/pq"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
-	"os"
 	"strconv"
 )
 
@@ -22,10 +19,10 @@ type App struct {
 
 // Initialize DB connections and router
 func (a *App) Initialize(user, password, host, dbname string) {
-	connectionString := fmt.Sprintf("%s:%s@tcp(%s:3306)/%s", user, password, host, dbname)
+	connectionString := fmt.Sprintf("user=%s password=%s host=%s dbname=%s sslmode=disable", user, password, host, dbname)
 
 	var err error
-	a.DB, err = sql.Open("mysql", connectionString)
+	a.DB, err = sql.Open("postgres", connectionString)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -40,20 +37,11 @@ func (a *App) Run(addr string) {
 }
 
 func (a *App) initializeRoutes() {
-	a.Router.HandleFunc("/hello", a.hello).Methods("GET")
 	a.Router.HandleFunc("/users", a.getUsers).Methods("GET")
 	a.Router.HandleFunc("/user", a.createUser).Methods("POST")
 	a.Router.HandleFunc("/user/{id:[0-9]+}", a.getUser).Methods("GET")
 	a.Router.HandleFunc("/user/{id:[0-9]+}", a.updateUser).Methods("PUT")
 	a.Router.HandleFunc("/user/{id:[0-9]+}", a.deleteUser).Methods("DELETE")
-}
-
-func (a *App) hello(w http.ResponseWriter, r *http.Request) {
-	user := os.Getenv("MYSQL_USER")
-	pass := os.Getenv("MYSQL_PASSWORD")
-	host := os.Getenv("MYSQL_HOST")
-	db := os.Getenv("MYSQL_DATABASE")
-	respondWithJSON(w, http.StatusOK, fmt.Sprintf("Hello, world! You're DB URL is: %s:%s@tcp(%s:3306)/%s", user, pass, host, db))
 }
 
 func (a *App) getUsers(w http.ResponseWriter, r *http.Request) {
