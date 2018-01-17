@@ -95,12 +95,12 @@ The following table shows cost of various replica scenarios assuming 1 GiB costs
 The replica scenarios assume that all backend services have equal number of replicas.
 So the first row assumes that our 30 backend services each have 1 replica.
 
-| # of replicas | Spring Boot Footprint (GiB) | Spring Boot Yearly Cost | Golang Footprint (GiB) | Golang Yearly Cost |
-|:-------------:|:---------------------------:|:-----------------------:|:----------------------:|:------------------:|
-| 1             | 15                          | $690                    | 0.15                   | $6.90              |
-| 3             | 45                          | $2070                   | 0.45                   | $20.70             |
-| 5             | 75                          | $3450                   | 0.75                   | $34.50             |
-| 10            | 150                         | $6900                   | 1.5                    | $69                |
+| # of replicas per API | Spring Boot Footprint (GiB) | Spring Boot Yearly Cost | Golang Footprint (GiB) | Golang Yearly Cost |
+|:---------------------:|:---------------------------:|:-----------------------:|:----------------------:|:------------------:|
+| 1                     | 15                          | $690                    | 0.15                   | $6.90              |
+| 3                     | 45                          | $2070                   | 0.45                   | $20.70             |
+| 5                     | 75                          | $3450                   | 0.75                   | $34.50             |
+| 10                    | 150                         | $6900                   | 1.5                    | $69                |
 
 Would you rather have 1 Spring Boot API, or 100 replicas of a Golang API?
 
