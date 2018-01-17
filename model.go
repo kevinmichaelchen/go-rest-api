@@ -1,5 +1,3 @@
-// model.go
-
 package main
 
 import (
@@ -31,14 +29,9 @@ func (u *user) deleteUser(db *sql.DB) error {
 }
 
 func (u *user) createUser(db *sql.DB) error {
-	statement := fmt.Sprintf("INSERT INTO users(name, age) VALUES('%s', %d)", u.Name, u.Age)
-	_, err := db.Exec(statement)
+	statement := fmt.Sprintf("INSERT INTO users(name, age) VALUES('%s', %d) returning id", u.Name, u.Age)
 
-	if err != nil {
-		return err
-	}
-
-	err = db.QueryRow("SELECT LAST_INSERT_ID()").Scan(&u.ID)
+	err := db.QueryRow(statement).Scan(&u.ID)
 
 	if err != nil {
 		return err
