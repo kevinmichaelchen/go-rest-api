@@ -93,6 +93,8 @@ However, it is a big deal when you take replication into account.
 Our REST backends are stateless and can easily be scaled. 
 
 The following table shows cost of various replica scenarios assuming 1 GiB costs $46 per year.
+It assumes all OS memory goes to apps (this is obviously not the case; in real life you wouldn't
+allocate so aggressively and would be spending more for a memory cushion).
 
 | # of replicas per API | Spring Boot Footprint (GiB) | Spring Boot Yearly Cost | Golang Footprint (GiB) | Golang Yearly Cost |
 |:---------------------:|:---------------------------:|:-----------------------:|:----------------------:|:------------------:|
