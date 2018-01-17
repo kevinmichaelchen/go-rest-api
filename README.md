@@ -60,6 +60,7 @@ In short, I don't have enough memory to run a full-blown microservices setup on 
 With Golang, I can run hundreds of replicas.
 
 #### Memory is not cheap!
+Here are the going rates for the t2 class of AWS EC2 instances:
 
 | Instance Type | $ per Year | Memory (GiB) |
 |:-------------:|:----------:|:------------:|
