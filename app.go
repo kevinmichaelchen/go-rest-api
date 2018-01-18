@@ -4,16 +4,16 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
-	_ "github.com/lib/pq"
 	"github.com/gorilla/mux"
+	_ "github.com/lib/pq"
 	"log"
 	"net/http"
 	"strconv"
 )
 
 type App struct {
-	Router *mux.Router
-	DB     *sql.DB
+	Router       *mux.Router
+	DB           *sql.DB
 	RabbitSender *RabbitSender
 }
 

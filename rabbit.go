@@ -1,11 +1,11 @@
 package main
 
 import (
-	"log"
 	"fmt"
+	"github.com/streadway/amqp"
+	"log"
 	"os"
 	"strconv"
-	"github.com/streadway/amqp"
 )
 
 func getRabbitMqPort() int {
@@ -18,19 +18,19 @@ func getRabbitMqPort() int {
 
 var (
 	rci = &RabbitConnectionInfo{
-		user: os.Getenv("RABBITMQ_USER"),
-		password: os.Getenv("RABBITMQ_PASSWORD"),
-		host: os.Getenv("RABBITMQ_HOST"),
-		port: getRabbitMqPort(),
+		user:         os.Getenv("RABBITMQ_USER"),
+		password:     os.Getenv("RABBITMQ_PASSWORD"),
+		host:         os.Getenv("RABBITMQ_HOST"),
+		port:         getRabbitMqPort(),
 		exchangeName: "clarakm-projects-exchange",
-		routingKey: "projects.#",
-		queueName: "clarakm-projects-queue",
+		routingKey:   "projects.#",
+		queueName:    "clarakm-projects-queue",
 	}
 )
 
 type RabbitConnectionInfo struct {
-	user, password, host string
-	port int
+	user, password, host                string
+	port                                int
 	exchangeName, queueName, routingKey string
 }
 
@@ -57,12 +57,12 @@ func (s *RabbitSender) send(msg string) {
 
 	err = ch.ExchangeDeclare(
 		rci.exchangeName,
-		"topic",      // type
-		true,         // durable
-		false,        // auto-deleted
-		false,        // internal
-		false,        // no-wait
-		nil,          // arguments
+		"topic", // type
+		true,    // durable
+		false,   // auto-deleted
+		false,   // internal
+		false,   // no-wait
+		nil,     // arguments
 	)
 	failOnError(err, "Failed to declare an exchange")
 
