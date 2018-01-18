@@ -62,6 +62,8 @@ func (a *App) getUsers(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	go a.RabbitSender.send("Listing users...")
+
 	respondWithJSON(w, http.StatusOK, products)
 }
 
