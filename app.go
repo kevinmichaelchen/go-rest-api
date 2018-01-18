@@ -11,10 +11,10 @@ import (
 	"strconv"
 )
 
-// App struct
 type App struct {
 	Router *mux.Router
 	DB     *sql.DB
+	RabbitSender *RabbitSender
 }
 
 // Initialize DB connections and router
@@ -27,6 +27,7 @@ func (a *App) Initialize(user, password, host, dbname string) {
 		log.Fatal(err)
 	}
 
+	a.RabbitSender = new(RabbitSender)
 	a.Router = mux.NewRouter()
 	a.initializeRoutes()
 }
@@ -79,6 +80,8 @@ func (a *App) createUser(w http.ResponseWriter, r *http.Request) {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
 		return
 	}
+
+	go a.RabbitSender.send("Created a user...")
 
 	respondWithJSON(w, http.StatusCreated, u)
 }

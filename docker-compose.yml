@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  rabbitmq:
+    image: rabbitmq:3.7.2-alpine
+    container_name: clarakm-rabbitmq
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=${RABBITMQ_ERLANG_COOKIE}
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+      - RABBITMQ_DEFAULT_VHOST=${RABBITMQ_DEFAULT_VHOST}
+
   api:
     image: teslagov/clarakm-projects-go:latest
     container_name: clarakm-projects-go
@@ -11,12 +20,16 @@ services:
       - DB_DATABASE=clarakm-projects
       - DB_USER=clara
       - DB_PASSWORD=password
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PASSWORD=guest
+      - RABBITMQ_HOST=rabbitmq
     depends_on:
       - db
+      - rabbitmq
 
   db:
-    container_name: clarakm-projects-db
     image: postgres:10.1-alpine
+    container_name: clarakm-projects-db
     environment:
       - POSTGRES_DB=clarakm-projects
       - POSTGRES_USER=clara
