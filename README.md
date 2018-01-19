@@ -25,5 +25,5 @@ Our Golang server has a much lighter memory footprint than our Spring Boot apps,
 | Golang   | net/http    | 5 MB             | [vid](https://asciinema.org/a/72mpi0VXUF9K65oX5bZYqUWa1) |
 
 See [this gist](https://gist.github.com/kevinmichaelchen/22ac37452979b05f78e99f775e249659)
-for a fuller explanation. At bast, embedded Tomcat runs at 120MB, which is still 24x higher
+for a fuller explanation. At best, embedded Tomcat runs at 120MB, which is still 24x higher
 than what Golang consumes. Out of the box, embedded Tomcat runs 100x higher than Golang.
