@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"time"
 )
 
 func getRabbitMqPort() int {
@@ -28,6 +29,10 @@ var (
 	}
 )
 
+type RabbitInitializer struct {
+	connection *amqp.Connection
+}
+
 type RabbitConnectionInfo struct {
 	user, password, host                string
 	port                                int
@@ -35,23 +40,51 @@ type RabbitConnectionInfo struct {
 }
 
 type RabbitListener struct {
+	RabbitInitializer
 }
 
 type RabbitSender struct {
+	RabbitInitializer
 }
 
 func (rci *RabbitConnectionInfo) getConnectionString() string {
 	return fmt.Sprintf("amqp://%s:%s@%s:%d/", rci.user, rci.password, rci.host, rci.port)
 }
 
-func (l *RabbitListener) Run() {
-	connString := rci.getConnectionString()
-	log.Printf("Connecting to RabbitMQ URL: %s", connString)
-	conn, err := amqp.Dial(connString)
-	failOnError(err, "Failed to connect to RabbitMQ")
-	defer conn.Close()
+func (i *RabbitInitializer) initialize() {
+	// TODO the two pointers to RabbitInitializer's connection point to the same connection,
+	// even though we're embedded the RabbitInitializer struct in two separate structs
+	if i.connection != nil {
+		log.Printf("Connection at %p is already initialized", i.connection)
+		return
+	}
 
-	ch, err := conn.Channel()
+	var conn *amqp.Connection
+	var err error
+
+	connString := rci.getConnectionString()
+
+	log.Printf("Connecting to RabbitMQ URL: %s", connString)
+
+	for i := 0; i < 3; i++ {
+		conn, err = amqp.Dial(connString)
+
+		if err != nil {
+			log.Printf("Could not connect. Will sleep for a bit and then retry")
+			time.Sleep(5 * time.Second)
+		}
+	}
+
+	if conn == nil {
+		failOnError(err, "Failed to connect to RabbitMQ")
+	}
+
+	i.connection = conn
+}
+
+func (l *RabbitListener) Run() {
+	l.initialize()
+	ch, err := l.connection.Channel()
 	failOnError(err, "Failed to open a channel")
 	defer ch.Close()
 
@@ -109,13 +142,8 @@ func (l *RabbitListener) Run() {
 }
 
 func (s *RabbitSender) send(msg string) {
-	connString := rci.getConnectionString()
-	log.Printf("Connecting to RabbitMQ URL: %s", connString)
-	conn, err := amqp.Dial(connString)
-	failOnError(err, "Failed to connect to RabbitMQ")
-	defer conn.Close()
-
-	ch, err := conn.Channel()
+	s.initialize()
+	ch, err := s.connection.Channel()
 	failOnError(err, "Failed to open a channel")
 	defer ch.Close()
 
